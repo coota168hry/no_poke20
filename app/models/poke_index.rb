@@ -1,0 +1,2 @@
+class PokeIndex < ApplicationRecord
+end

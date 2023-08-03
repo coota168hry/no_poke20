@@ -1,0 +1,2 @@
+class Soft < ApplicationRecord
+end
