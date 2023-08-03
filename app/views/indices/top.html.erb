@@ -1,0 +1,22 @@
+
+<div class="introduction">
+  <p>ポケモン　あなたはしってる？</p>
+  <p>ずかんの　せつめいだけで</p>
+  <p>えを　かいてみよう!</p>
+</div>
+<div class="choices home-choices">
+  <div class="choice-1">
+    <%# 通常時 %>
+    <span class="normal-1">　</span>
+    <%# hover時 %>
+    <span class="hover-1">▶︎</span>
+    <%= link_to 'ランダムに表示する', random_home_path(prev_soft_name: @selected_soft_name) %>
+  </div>
+  <div class="choice-2">
+    <%# 通常時 %>
+    <span class="normal-2">　</span>
+    <%# hover時 %>
+    <span class="hover-2">▶︎</span>
+    <%= link_to 'ポケモンを検索する', search_home_path(prev_soft_name: @selected_soft_name) %>
+  </div>
+</div>

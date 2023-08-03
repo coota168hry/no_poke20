@@ -1,0 +1,17 @@
+<div class='result'>
+  <% @search_results.each do |search_result|  %>
+    <p class='result-soft-name'>ずかん：<%= search_result.soft_name %></p>
+    <div class='result-flame'>
+      <p class='result-poke-name'><%= search_result.poke_name %></p>
+      <%= simple_format(search_result.index_text, class:'result-index-text') %>
+    </div>
+  <% end %>
+
+    <% if @search_results.count == 0 %>
+      <p class='result-poke-name'>検索結果なし</p>
+      <p class='result-index-text'>-</p>
+    <% end %>
+  
+</div>
+
+<%= link_to '検索画面に戻る', search_home_path(prev_soft_name: @selected_soft_name) ,class:'link-button'%>

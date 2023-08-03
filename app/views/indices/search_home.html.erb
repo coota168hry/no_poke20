@@ -1,0 +1,56 @@
+<%# ソフト名を配列で格納 %>
+<% soft_names = {
+"第一世代" => ['赤','緑','青','ピカチュウ'],
+"第二世代" => ['金','銀','クリスタル'],
+"第三世代" => ['ルビー','サファイア','エメラルド','ファイアレッド','リーフグリーン'],
+"第四世代" => ['ダイヤモンド','パール','プラチナ','ハートゴールド','ソウルシルバー'],
+"第五世代" => ['ブラック','ホワイト','ブラック2','ホワイト2'],
+"第六世代" => ['X','Y','オメガルビー','アルファサファイア'],
+"第七世代" => ['サン','ムーン','ウルトラサン','ウルトラムーン','Let\'s Go! ピカチュウ','Let\'s Go! イーブイ'],
+"第八世代" => ['ソード','シールド','ブリリアントダイヤモンド','シャイニングパール','LEGENDS アルセウス'],
+"第九世代" => ['スカーレット','バイオレット']} %>
+
+<div class='search-form'>
+  <%= form_with url:search_result_path, method: :get, local: true do |form| %>
+  <div class='main-content' >
+    <%= image_tag 'hero.jpg',class: "hero-image" %>
+    <div class='search-area'>
+      <p>あ！　やせいの</p>
+      <%= form.text_field :keyword, placeholder: "？？？？？？",required: true %>
+      <p>が　とびだしてきた！　▼</p>
+    </div>
+  </div>
+    <%# softnamesを展開してラジオボタンを作成 %>
+    <div class='selects'> <%# 選択肢全体 %>
+      <% soft_names.each do |key,value| %>
+        <div class='selects-generation'><%# 選択肢（世代ごと） %>
+          <%# キー（世代）を表示 %>
+          <div class='generation'>
+            <%= key %>
+          </div>
+          <%# ソフト名を展開して表示 %>
+          <div class='softs'>
+            <% value.each_with_index do |soft_name,idx| %>
+            <div class='soft'>
+              <%# 前回選択したソフトを選択済みにする %>
+              <%  if params[:prev_soft_name] == soft_name %>
+                <%= form.radio_button :selected_soft_name, soft_name ,checked: true%>
+                <%= form.label :selected_soft_name, soft_name %>
+              <%  else %>
+                <%= form.radio_button :selected_soft_name, soft_name ,required: true %>
+                <%= form.label :selected_soft_name, soft_name %>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+  <div class='submit-button'>
+    <%= form.submit "検索" %>
+    <% end %>
+
+  <%#= link_to 'ホームに戻る', home_path(prev_soft_name: @selected_soft_name) ,class:'link-button'%>
+  </div>
+</div>

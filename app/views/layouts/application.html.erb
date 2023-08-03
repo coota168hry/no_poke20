@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NoPoke20</title>
+    <title>ポケモンミリしらおえかき</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Roboto:wght@300;900&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+  <%# ヘッダーここから %>
+  <header class="header">
+    <div class="header-logo">
+      <%= link_to image_tag("header_image.png"), "/",class: "header-image" %>
+    </div>
+    <div class="choices header-choices">
+      <div class="choice-1">
+        <%# 通常時 %>
+        <%= link_to '　ランダム', random_home_path(prev_soft_name: @selected_soft_name) ,class:'normal-1'%>
+        <%# hover時 %>
+        <%= link_to '▶︎ランダム', random_home_path(prev_soft_name: @selected_soft_name) ,class:'hover-1'%>
+      </div>
+      <div class="choice-2">
+        <%# 通常時 %>
+        <%= link_to '　検索', search_home_path(prev_soft_name: @selected_soft_name) ,class:'normal-2'%>
+        <%# hover時 %>
+        <%= link_to '▶︎検索', search_home_path(prev_soft_name: @selected_soft_name) ,class:'hover-2'%>
+      </div>
+    </div>
+  </header>
+  <%# ヘッダーここまで %>
+
+  <%# メインここから %>
+  <main class='main'>
     <%= yield %>
+  </main>
+  <%# メインここまで %>
+
+  <%# フッターここから %>
+  <footer class='footer'>
+    <p>©️ ポケモンミリしらおえかき 2023.</p>
+  </footer>
+  <%# フッターここまで %>
+
   </body>
 </html>

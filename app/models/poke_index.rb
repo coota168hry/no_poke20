@@ -44,6 +44,8 @@ class PokeIndex < ApplicationRecord
     return results
   end
 
+end
+
   private
   #クエリ呼び出し(バージョン指定ランダム)
   def selected_random(search_key)
@@ -97,5 +99,3 @@ class PokeIndex < ApplicationRecord
     ;"
     return PokeIndex.find_by_sql(query)
   end
-
-end
