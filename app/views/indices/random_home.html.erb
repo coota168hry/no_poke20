@@ -30,7 +30,7 @@
           <%# キー（世代）を表示 %>
           <div class='ran-generation'>
             <%= form.label :selected_generation_names, key %>
-            <%= form.check_box :selected_generation_names,{multiple:true} ,key,nil %>
+            <span class='check-box'><%= form.check_box :selected_generation_names,{multiple:true} ,key,nil %></span>
           </div>
           <div class='ran-softs'>
             <% value.each do |soft_name| %>

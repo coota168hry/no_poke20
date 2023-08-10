@@ -28,6 +28,7 @@ body {
   background-color: rgb(202,202,175);
 }   
 
+
 /* ヘッダー -----------------------*/
 
 .header {
@@ -204,6 +205,14 @@ animation: SlideIn 2.0s;
   border-bottom: 1px solid #333333;
   align-items: center;/*  */
 }
+
+.check-box {
+  align-items: center;
+}
+.radio-button {
+  align-items: center;
+}
+
 .ran-generation {
   /* font-weight: bold; */
   font-size: 18px;/*  */
@@ -445,11 +454,21 @@ animation: SlideIn 2.0s;
   }
   .home-choices {
     max-width: 280px;
-    text-decoration:underline;
+     text-decoration:underline; 
   }
-  .normal-1 ,.normal-2{
+  .smart_del {
     display: none;
   }
   
-
+  .result-soft-name {
+    font-size: 20px;
+  }
+  
+  .result-poke-name {
+    font-size: 26px;
+  }
+  
+  .result-index-text {
+    font-size: 20px;
+  }
 }

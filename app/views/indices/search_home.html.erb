@@ -34,10 +34,10 @@
             <div class='soft'>
               <%# 前回選択したソフトを選択済みにする %>
               <%  if params[:prev_soft_name] == soft_name %>
-                <%= form.radio_button :selected_soft_name, soft_name ,checked: true%>
+               <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,checked: true%></span>
                 <%= form.label :selected_soft_name, soft_name %>
               <%  else %>
-                <%= form.radio_button :selected_soft_name, soft_name ,required: true %>
+                <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,required: true %></span>
                 <%= form.label :selected_soft_name, soft_name %>
               <% end %>
             </div>
