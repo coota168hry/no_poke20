@@ -305,17 +305,18 @@ animation: SlideIn 2.0s;
   margin-left: auto;
   margin-top: 20px;
   font-family: 'DotGothic16', sans-serif;
-  
   justify-content: center;
 }
 .result-soft-name {
   font-weight: bold;
-  font-size: 26px;
+  font-size: 20px;  /* 長いソフト名で2行になること避ける */
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .result-flame {
+  height: 250px;
+  scrollbar-color: rgb(202,202,175) gray;
   border: 5px solid #333333;
 }
 
@@ -332,6 +333,8 @@ animation: SlideIn 2.0s;
   margin: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 150px;  /* 長い時はスクロール */
+  overflow-y:auto;  /* 長い時はスクロール */
 }
 
 .link-button {
@@ -444,6 +447,11 @@ animation: SlideIn 2.0s;
   .result {
     max-width: 300px;
   }
+
+  .result-index-text {
+    height: 170px;  /* ライフ先生要望で枠サイズ固定 */
+  }
+
 
   .introduction {
     max-width: 280px;
