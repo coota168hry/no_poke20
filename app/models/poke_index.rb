@@ -4,10 +4,6 @@ class PokeIndex < ApplicationRecord
 
   def self.search(search)
     #検索
-    #↓姿違いを一度に検索できるが、サンド・サンドパンを一度に出してしまうため仕様変更
-    #query = "select * from poke_indices where poke_name like '#{search[:keyword]}%' and soft_name = '#{search[:selected_soft_name]}'"
-    #↓完全一致のため、↓poke_nameに（⚫︎⚫︎の姿）を含めて登録すると当たらない。注意書きが必要。
-    #もしくは、ポケモン/バージョンのキーを守って、（通常）〜〜（⚫︎⚫︎の姿）〜〜のように図鑑説明に二つ記載するルールにする（現状これを採用）
     query = "
     SELECT 
     softs.soft_name as soft_name,

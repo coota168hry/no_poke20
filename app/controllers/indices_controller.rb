@@ -1,10 +1,12 @@
 class IndicesController < ApplicationController
     #home画面表示
     def top
-      #ビュー表示のみのため内容なし。
+      #記事取得
+      @articles = Article.getTopArticle()
     end
     #検索機能ホーム画面表示
     def search_home
+      @help_texts = Message.help()
     end
 
     #検索機能
@@ -28,6 +30,14 @@ class IndicesController < ApplicationController
       @search_results.each do |result|
         puts result
       end
+      puts'-----------'
+    end
+
+    #記事投稿機能
+    def article
+      @articles = Article.getDetailArticle(params[:id])
+      puts'-----------'
+      puts params[:id]
       puts'-----------'
     end
 end

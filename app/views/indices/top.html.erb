@@ -1,9 +1,9 @@
-
 <div class="introduction">
   <p>ポケモン　あなたはしってる？</p>
   <p>ずかんの　せつめいだけで</p>
   <p>えを　かいてみよう!</p>
 </div>
+
 <div class="choices home-choices">
   <div class="choice-1">
     <%# 通常時 %>
@@ -17,6 +17,19 @@
     <span class="normal-2 smart_del">　</span>
     <%# hover時 %>
     <span class="hover-2 smart_del" >▶︎</span>
-    <%= link_to 'ポケモンを検索する', search_home_path(prev_soft_name: @selected_soft_name) %>
+    <%= link_to 'ポケモンを検索する', search_home_path(prev_soft_name: @selected_soft_name)  %>
+  </div>
+</div>
+
+<div class="news">
+  <h3>news</h3>
+  <div class="articles">
+
+    <% @articles.each do |article| %>
+      <div class="article">
+        <%= link_to article.display_date,article_path(id: article.id) %>
+        <%= link_to article.title,article_path(id: article.id) %>
+      </div>
+    <% end %>
   </div>
 </div>

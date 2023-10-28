@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_074508) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_28_055547) do
+  create_table "articles", charset: "utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.date "display_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "del_flg", limit: 1
+  end
+
   create_table "generations", charset: "utf8", force: :cascade do |t|
     t.string "generation_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", charset: "utf8", force: :cascade do |t|
+    t.string "class_code"
+    t.string "title"
+    t.text "text"
+    t.text "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

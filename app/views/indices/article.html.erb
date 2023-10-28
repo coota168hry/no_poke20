@@ -1,0 +1,13 @@
+<div class="article_detail">
+  <% @articles.each do |article|  %>
+    <div class="article_detalil_header">
+      <h1><%= article.title  %></h1>
+      <div class="article_detalil_date"><%= article.display_date  %></div>
+    </div>
+    <hr>
+    <div class="article_detail_text"><%= simple_format(article.text) %></div>
+  <% end %>
+</div>
+
+
+<%= link_to '戻る', top_path() ,class:'link-button'%>
