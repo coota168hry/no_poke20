@@ -13,44 +13,85 @@
 <div class='search-form'>
   <%= form_with url:search_result_path, method: :get, local: true do |form| %>
   <div class='main-content' >
-    <%= image_tag 'hero.jpg',class: "hero-image" %>
+    <%= image_tag 'hero.png',class: "hero-image" %>
     <div class='search-area'>
       <p>あ！　やせいの</p>
       <%= form.text_field :keyword, placeholder: "？？？？？？",required: true %>
       <p>が　とびだしてきた！　▼</p>
     </div>
   </div>
-    <%# softnamesを展開してラジオボタンを作成 %>
-    <div class='selects'> <%# 選択肢全体 %>
-      <% soft_names.each do |key,value| %>
-        <div class='selects-generation'><%# 選択肢（世代ごと） %>
-          <%# キー（世代）を表示 %>
-          <div class='generation'>
-            <%= key %>
-          </div>
-          <%# ソフト名を展開して表示 %>
-          <div class='softs'>
-            <% value.each_with_index do |soft_name,idx| %>
-            <div class='soft'>
-              <%# 前回選択したソフトを選択済みにする %>
-              <%  if params[:prev_soft_name] == soft_name %>
-               <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,checked: true%></span>
-                <%= form.label :selected_soft_name, soft_name %>
-              <%  else %>
-                <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,required: true %></span>
-                <%= form.label :selected_soft_name, soft_name %>
-              <% end %>
-            </div>
+  <%# softnamesを展開してラジオボタンを作成 %>  
+  <div class='selects'> <%# 選択肢全体 %>
+    <% soft_names.each do |key,value| %>
+      <div class='selects-generation'><%# 選択肢（世代ごと） %>
+        <%# キー（世代）を表示 %>
+        <div class='generation'>
+          <%= key %>
+        </div>
+        <%# ソフト名を展開して表示 %>
+        <div class='softs'>
+          <% value.each_with_index do |soft_name,idx| %>
+          <div class='soft'>
+            <%# 前回選択したソフトを選択済みにする %>
+            <%  if params[:prev_soft_name] == soft_name %>
+              <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,checked: true%></span>
+              <%= form.label :selected_soft_name, soft_name %>
+            <%  else %>
+              <span class='radio-button'><%= form.radio_button :selected_soft_name, soft_name ,required: true %></span>
+              <%= form.label :selected_soft_name, soft_name %>
             <% end %>
           </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-    
+      </div>
+    <% end %>
+  </div>
+
+  <%# ------------------------------ %>
+  <%# ヘルプボタン %>
+  <div class='help-button'>
+    <%= image_tag 'help_icon.png', class: 'help-button-icon' %>
+    <span>検索ヘルプ</span>  
+  </div>
+  <%# ------------------------------ %>
+
+  <%# ------------------------------ %>
+  <%# モーダル %>
+  <div class="layer js-mordal">
+    <div class='mordal'>
+      <div class="mordal-innner">
+        <%# バツボタン %>
+        <%# クリックでテキストを閉じる %>
+        <div class='back'>
+          <%= image_tag 'back_icon.png', class: 'back-button-icon' %>
+        </div>
+        
+        <%# helpテキスト %>
+        <div class='help-text'>
+          <% @help_texts.each do |help_text| %>
+            <dl>
+              <dt><%= help_text.title %></dt>
+              <dd><%= help_text.text %></dd>
+              <details>
+              <summary>※タップでポケモンの具体例を見ることができます。</summary>
+                　<%= help_text.remarks %>
+              </details>
+            </dl>
+          <% end %>
+        </div>
+
+      </div>
+    </div> 
+  </div>
+  <%# ------------------------------ %>
+
+
+  <%# ------------------------------ %>
+  <%# 検索ボタン %>
   <div class='submit-button'>
     <%= form.submit "検索" %>
     <% end %>
-
-  <%#= link_to 'ホームに戻る', home_path(prev_soft_name: @selected_soft_name) ,class:'link-button'%>
   </div>
+  <%# ------------------------------ %>
+
 </div>

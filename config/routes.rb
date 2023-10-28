@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'search_result' , to: 'indices#search_result'
   get 'random_home' ,to: 'indices#random_home'
   get 'random_result' , to: 'indices#random_result'
+  get 'article' , to: 'indices#article'
 end
