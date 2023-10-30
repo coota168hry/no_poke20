@@ -26,18 +26,12 @@ class IndicesController < ApplicationController
     def random_result
       @selected_generation_names = params[:selected_generation_name]
       @search_results = PokeIndex.random(params[:selected_generation_names])
-      puts'-----------'
       @search_results.each do |result|
-        puts result
       end
-      puts'-----------'
     end
 
     #記事投稿機能
     def article
       @articles = Article.getDetailArticle(params[:id])
-      puts'-----------'
-      puts params[:id]
-      puts'-----------'
     end
 end
