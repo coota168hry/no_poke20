@@ -32,3 +32,5 @@
 /config/environments/development.rb
 /config/puma.rb
 /config/database.yml
+
+/nohup.out
