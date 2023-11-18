@@ -24,9 +24,9 @@ body {
   font-size: 16px;
   color: #000000;
   line-height: 1;
-  background-color: rgb(202,202,175);
+  background-color: #D9DADA;
   scrollbar-width: thin;
-  scrollbar-color: gray rgb(202,202,175);
+  scrollbar-color: gray #D9DADA;
 }   
 
 ::-webkit-scrollbar{
@@ -143,10 +143,10 @@ body {
 
 .hero-image {
 display: block;
-max-width: 130px;
-max-height: 130px;
+max-width: 80px;
+max-height: 80px;
 margin: 5px;
-margin-right: 20px;
+margin-right: 8px;
 animation: SlideIn 2.0s;
 }
 
@@ -165,12 +165,12 @@ animation: SlideIn 2.0s;
 
 .search-area {
   font-family: 'DotGothic16', sans-serif;
-  font-size: 22px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 30px;
   display: block;
   border: 5px solid #333333;
   border-radius: 10px;
-  padding: 16px;
+  padding: 16px 10px;
   max-height: 180px;
   margin: 5px;
 }
@@ -322,7 +322,7 @@ animation: SlideIn 2.0s;
   display: flex;
   align-items: center;
   text-align: center;
-  color: rgb(202,202,175);
+  color: #D9DADA;
   background-color: rgb(55,60,56);
   height: 120px;
 }
@@ -342,13 +342,15 @@ animation: SlideIn 2.0s;
   margin-left: auto;
   margin-top: 20px;
   font-family: 'DotGothic16', sans-serif;
-  justify-content: center;
+  justify-content: space-between;
+  
 }
 .result-soft-name {
   font-weight: bold;
   font-size: 20px;  /* 長いソフト名で2行になること避ける */
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .result-flame {
@@ -372,11 +374,13 @@ animation: SlideIn 2.0s;
   padding-bottom: 10px;
   height: 150px;  /* 長い時はスクロール */
   overflow-y: auto;
-
-
 }
 
-
+.enc-message {
+  text-align: center;
+  margin-top: 6px;
+  font-size: 18px;
+}
 
 .link-button {
   background-color: lightgray;
